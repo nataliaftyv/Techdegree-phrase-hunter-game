@@ -7,6 +7,8 @@ class Phrase:
     def __init__(self, phrase):
         self.phrase = phrase.lower()
         self.phrase_as_list = list(self.phrase)
+        self.hidden_phrase = None
+        self.hidden_phrase_as_list = None
 
     def __str__(self):
         return f'{self.phrase}'
@@ -21,6 +23,7 @@ class Phrase:
         # display phrase, un-guessed letters as dash, guessed as letter
         hidden_phrase_list = copy.deepcopy(self.phrase_as_list)
         display_phrase_list = copy.deepcopy(self.phrase_as_list)
+
         if len(guessed_letters_list) == 0:
             for i in range(len(hidden_phrase_list)):
                 if hidden_phrase_list[i] != ' ':
@@ -30,17 +33,17 @@ class Phrase:
             return hidden_phrase
 
         else:
-            for letter in guessed_letters_list:
-                for i in range(len(display_phrase_list)):
-                    if display_phrase_list[i] is letter:
+            for i in range(len(self.phrase_as_list)):
+                for letter in guessed_letters_list:
+                    if self.phrase_as_list[i] == letter:
                         display_phrase_list[i] = letter
-                    elif display_phrase_list[i] != ' ':
+                    elif self.phrase_as_list[i] != ' ':
                         display_phrase_list[i] = '-'
 
-                display_phrase = ''.join(display_phrase_list)
-                print(f'Display phrase is: {display_phrase}')
-                # TODO: for testing purposes, remove print when done
-                return display_phrase
+            display_phrase = ''.join(display_phrase_list)
+            print(f'Display phrase is: {display_phrase}')
+            # TODO: for testing purposes, remove print when done
+            return display_phrase
 
 
 

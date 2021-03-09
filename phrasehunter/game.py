@@ -1,6 +1,7 @@
 import random
 from phrasehunter.phrase import Phrase
 
+
 class Game:
 
     def __init__(self):
