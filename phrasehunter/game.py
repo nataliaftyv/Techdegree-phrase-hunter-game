@@ -1,11 +1,15 @@
 import random
 from phrasehunter.phrase import Phrase
 
+# TODO: catch value errors
+# TODO: prevent repeat guesses of same letter
+
 
 class Game:
 
     def __init__(self):
         self.missed = 0
+        self.allowed_misses = 1
         self.phrases = [
             'The Remains of the Day',
             'A Pale View of Hills',
@@ -16,8 +20,7 @@ class Game:
         self.active_phrase = None
         self.guesses = []
         # a list that contains the letters guessed by the user.
-
-
+        self.correct_guesses = []
 
     def start(self):
         self.welcome()
@@ -25,21 +28,23 @@ class Game:
         self.active_phrase = self.get_random_phrase()
         print(f'Active Phrase is {self.active_phrase}')
         # TODO: for testing purposes, remove print when done
-        guessed_letters = []
-        self.active_phrase.display(guessed_letters)
-    # calls the get_guess method, adds the user's guess to guesses
-        letter = self.get_guess()
-        self.active_phrase.check_letter(letter)
-        if self.active_phrase.check_letter(letter) is False:
-            print('Wrong Guess')
-        else:
-            guessed_letters.append(self.active_phrase.check_letter(letter))
-            self.active_phrase.display(guessed_letters)
-            # TODO: figure out this bug
 
-    # increments the number of missed by one if the guess is incorrect,
-        # self.game_over()
+        while self.missed < self.allowed_misses:
+            self.active_phrase.display(self.correct_guesses)
+            letter = self.get_guess()
+            self.active_phrase.check_letter(letter)
+            if self.active_phrase.check_letter(letter) is False:
+                self.missed += 1
+                print(f'Wrong Guess! You have {self.allowed_misses - self.missed} of {self.allowed_misses} lives left')
 
+            else:
+                self.correct_guesses.append(self.active_phrase.check_letter(letter))
+                print('Good guess!')
+                self.active_phrase.display(self.correct_guesses)
+                self.active_phrase.check_complete()
+
+        self.game_over()
+        print('Game over')
 
     def get_random_phrase(self):
         phrase_choice = random.choice(self.phrases)
@@ -60,13 +65,11 @@ class Game:
         return guess
         # TODO: for testing purposes, remove print when done
 
-
     def game_over(self):
         # this method displays a friendly win or loss message and ends the game.
+        self.active_phrase.check_complete()
         if Phrase.check_complete:
             print('You won!')
-        elif self.missed > 5:
+        elif self.missed > self.allowed_misses:
             print('You lost!')
-
-
 

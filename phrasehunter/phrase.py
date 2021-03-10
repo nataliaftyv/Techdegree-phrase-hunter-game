@@ -1,6 +1,4 @@
 import copy
-#from game import Game
-
 
 class Phrase:
 
@@ -8,10 +6,20 @@ class Phrase:
         self.phrase = phrase.lower()
         self.phrase_as_list = list(self.phrase)
         self.hidden_phrase = None
-        self.hidden_phrase_as_list = None
+        self.hidden_phrase_as_list = []
+        self.display_phrase = None
+
 
     def __str__(self):
         return f'{self.phrase}'
+
+    def convert_to_hidden(self):
+        self.hidden_phrase_as_list = copy.deepcopy(self.phrase_as_list)
+        for i in range(len(self.phrase_as_list)):
+            if self.phrase_as_list[i] != ' ':
+                self.hidden_phrase_as_list[i] = '-'
+        self.hidden_phrase = ''.join(self.hidden_phrase_as_list)
+        return self.hidden_phrase
 
     def check_letter(self, letter):
         if letter in self.phrase_as_list:
@@ -19,38 +27,34 @@ class Phrase:
         else:
             return False
 
-    def display(self, guessed_letters_list):
+    def display(self, correct_guesses):
         # display phrase, un-guessed letters as dash, guessed as letter
-        hidden_phrase_list = copy.deepcopy(self.phrase_as_list)
-        display_phrase_list = copy.deepcopy(self.phrase_as_list)
 
-        if len(guessed_letters_list) == 0:
-            for i in range(len(hidden_phrase_list)):
-                if hidden_phrase_list[i] != ' ':
-                    hidden_phrase_list[i] = '-'
-            hidden_phrase = ''.join(hidden_phrase_list)
-            print(f'Hidden phrase is: {hidden_phrase}')
-            return hidden_phrase
+        if len(correct_guesses) == 0:
+            self.convert_to_hidden()
+            print(f'Hidden phrase is: {self.hidden_phrase}')
+            return self.hidden_phrase
 
         else:
+            letter = correct_guesses[-1]
             for i in range(len(self.phrase_as_list)):
-                for letter in guessed_letters_list:
-                    if self.phrase_as_list[i] == letter:
-                        display_phrase_list[i] = letter
-                    elif self.phrase_as_list[i] != ' ':
-                        display_phrase_list[i] = '-'
+                if self.phrase_as_list[i] == letter:
+                    self.hidden_phrase_as_list[i] = letter
 
-            display_phrase = ''.join(display_phrase_list)
-            print(f'Display phrase is: {display_phrase}')
+            self.display_phrase = ''.join(self.hidden_phrase_as_list)
+            print(f'Display phrase is: {self.display_phrase}')
             # TODO: for testing purposes, remove print when done
-            return display_phrase
+            return self.display_phrase
 
 
 
-    def check_complete(self, display_phrase):
-        if '-' not in display_phrase:
-            return True
+    def check_complete(self):
         # checks to see if the whole phrase has been guessed
-        # TODO: figure this out, should  not be static
+        #display_phrase_as_list = list(self.display_phrase)
+        if '-' not in self.hidden_phrase_as_list:
+            return True
+        else:
+            pass
+
 
 
