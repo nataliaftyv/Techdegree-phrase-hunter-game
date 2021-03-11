@@ -1,8 +1,11 @@
-import random
+#import random
 from phrasehunter.phrase import Phrase
 
 # TODO: catch value errors
 # TODO: prevent repeat guesses of same letter
+# TODO: change allowed misses value back to 5
+# TODO: change active frase to random from abc
+# TODO: remove all test print statements
 
 
 class Game:
@@ -28,9 +31,8 @@ class Game:
         self.active_phrase = self.get_random_phrase()
         print(f'Active Phrase is {self.active_phrase}')
         # TODO: for testing purposes, remove print when done
-
+        self.active_phrase.display(self.correct_guesses)
         while self.missed < self.allowed_misses:
-            self.active_phrase.display(self.correct_guesses)
             letter = self.get_guess()
             self.active_phrase.check_letter(letter)
             if self.active_phrase.check_letter(letter) is False:
@@ -41,14 +43,16 @@ class Game:
                 self.correct_guesses.append(self.active_phrase.check_letter(letter))
                 print('Good guess!')
                 self.active_phrase.display(self.correct_guesses)
-                self.active_phrase.check_complete()
+                if self.active_phrase.check_complete():
+                    break
+
 
         self.game_over()
         print('Game over')
 
     def get_random_phrase(self):
-        phrase_choice = random.choice(self.phrases)
-        current_phrase = Phrase(phrase_choice)
+        # phrase_choice = random.choice(self.phrases)
+        current_phrase = Phrase('abc')
         return current_phrase
 
     @staticmethod
@@ -67,9 +71,9 @@ class Game:
 
     def game_over(self):
         # this method displays a friendly win or loss message and ends the game.
-        self.active_phrase.check_complete()
-        if Phrase.check_complete:
+        if self.active_phrase.check_complete():
             print('You won!')
-        elif self.missed > self.allowed_misses:
+        else:
             print('You lost!')
+
 

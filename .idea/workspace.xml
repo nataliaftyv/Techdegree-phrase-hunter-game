@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="528c71d3-a1ee-46d1-9d6b-94428e1cfecd" name="Default Changelist" comment="fixed bug in display loop">
+    <list default="true" id="528c71d3-a1ee-46d1-9d6b-94428e1cfecd" name="Default Changelist" comment="All Game class methods implemented">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/phrasehunter/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/phrasehunter/game.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/phrasehunter/phrase.py" beforeDir="false" afterPath="$PROJECT_DIR$/phrasehunter/phrase.py" afterDir="false" />
     </list>
@@ -120,7 +121,7 @@
       <workItem from="1615223152557" duration="938000" />
       <workItem from="1615224342393" duration="135000" />
       <workItem from="1615224646919" duration="8104000" />
-      <workItem from="1615378057039" duration="5175000" />
+      <workItem from="1615378057039" duration="7860000" />
     </task>
     <task id="LOCAL-00001" summary="fixed bug in display loop">
       <created>1615279470387</created>
@@ -129,29 +130,45 @@
       <option name="project" value="LOCAL" />
       <updated>1615279470387</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="ALl Game class methods implemented">
+      <created>1615383372802</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1615383372802</updated>
+    </task>
+    <task id="LOCAL-00003" summary="All Game class methods implemented">
+      <created>1615383428538</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1615383428538</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fixed bug in display loop" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed bug in display loop" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/phrasehunter/game.py</url>
-          <line>46</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="ALl Game class methods implemented" />
+    <MESSAGE value="All Game class methods implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="All Game class methods implemented" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/phrase_hunter$app.coverage" NAME="app Coverage Results" MODIFIED="1615383160912" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/phrase_hunter$app.coverage" NAME="app Coverage Results" MODIFIED="1615481197456" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/phrase_hunter$scratch_3.coverage" NAME="scratch_3 Coverage Results" MODIFIED="1615378396368" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
   </component>
 </project>
