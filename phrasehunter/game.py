@@ -63,11 +63,17 @@ class Game:
         # gets the guess from a user and records it in the guesses attribute
         guess = input('Guess a letter > ')
         guess = guess.lower()
-        self.guesses.append(guess)
-        print(self.guesses)
-        print(f' user letter is: {guess}')
-        return guess
-        # TODO: for testing purposes, remove print when done
+
+        if guess not in self.guesses:
+            self.guesses.append(guess)
+            print(self.guesses)
+            print(f' user letter is: {guess}') # TODO: for testing purposes, remove print when done
+            return guess
+        else:
+            print('Oops! You already tried this letter! Try again!')
+            self.get_guess()
+
+
 
     def game_over(self):
         # this method displays a friendly win or loss message and ends the game.

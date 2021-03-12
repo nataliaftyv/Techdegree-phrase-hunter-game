@@ -47,14 +47,14 @@ class Phrase:
             return self.display_phrase
 
     def check_complete(self):
-        print('check_complete called!')
+       # print('check_complete called!')
         # checks to see if the whole phrase has been guessed
         #display_phrase_as_list = list(self.display_phrase)
         if '-' not in self.hidden_phrase_as_list:
-            print('Check Complete is True')
+           # print('Check Complete is True')
             return True
         else:
-            print('Check Complete is False')
+            # print('Check Complete is False')
             return False
 
 
