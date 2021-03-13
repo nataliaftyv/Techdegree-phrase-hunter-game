@@ -1,6 +1,5 @@
 import random
 from phrasehunter.phrase import Phrase
-# TODO: remove all test print statements
 
 
 class Game:
@@ -52,7 +51,7 @@ class Game:
 
     @staticmethod
     def welcome():
-        print('Welcome to the Phrase Hunt Game! Can you guess the hidden phrase?')
+        print('Welcome to the Phrase Hunt Game! Can you guess the hidden phrase? \nHint: it is the title of a novel by Kazuo Ishiguro :)')
 
     def get_guess(self):
         # gets the guess from a user and records it in the guesses attribute, unless it is a repeat guess
