@@ -30,7 +30,7 @@ class Game:
                 print('Oops! You already tried this letter! Try again!')
                 letter = self.get_guess()
             while letter not in self.allowed_chars:
-                print('Oops! This character is not allowed! Must be a single letter of English alphabet! Try again!')
+                print('Oops! This input is not allowed! Must be a single letter of English alphabet! Try again!')
                 letter = self.get_guess()
             if self.active_phrase.check_letter(letter):
                 print('Good guess!')
@@ -39,10 +39,12 @@ class Game:
                     break
             else:
                 self.missed += 1
-                print(f'Wrong Guess! You have used {self.missed} of {self.allowed_misses} allowed misses!')
+                if self.missed > self.allowed_misses:
+                    print('Wrong guess!')
+                else:
+                    print(f'Wrong Guess! You have used {self.missed} of {self.allowed_misses} allowed misses!')
 
         self.game_over()
-        print('This Game is over!')
 
     def get_random_phrase(self):
         phrase_choice = random.choice(self.phrases)
@@ -51,7 +53,7 @@ class Game:
 
     @staticmethod
     def welcome():
-        print('Welcome to the Phrase Hunt Game! Can you guess the hidden phrase? \nHint: it is the title of a novel by Kazuo Ishiguro :)')
+        print('Welcome! \nCan you guess the hidden phrase? \nHint: it is the title of a novel by Kazuo Ishiguro :)')
 
     def get_guess(self):
         # gets the guess from a user and records it in the guesses attribute, unless it is a repeat guess
@@ -64,9 +66,24 @@ class Game:
         else:
             return 'Duplicate'
 
+    def game_reset(self):
+        # resets the game if user wishes
+        self.active_phrase = None
+        self.missed = 0
+        self.guesses = []
+
     def game_over(self):
         # displays a friendly win or loss message and ends the game
         if self.active_phrase.check_complete():
             print('Congratulations! You won!')
         else:
             print('Too bad, you lost! Better luck next time!')
+
+        play_again = input('Would you like to play again? Y/N: ').upper()
+        while play_again not in ['Y', 'N']:
+            play_again = input('Cannot recognize your input! Try again! Y/N: ').upper()
+        if play_again == 'Y':
+            self.game_reset()
+            self.start()
+        elif play_again == 'N':
+            print('Bye Then!')
