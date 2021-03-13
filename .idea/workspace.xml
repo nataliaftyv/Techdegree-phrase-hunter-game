@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="528c71d3-a1ee-46d1-9d6b-94428e1cfecd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/phrase-hunter.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/phrase-hunter.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/phrasehunter/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/phrasehunter/game.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/phrasehunter/phrase.py" beforeDir="false" afterPath="$PROJECT_DIR$/phrasehunter/phrase.py" afterDir="false" />
     </list>
@@ -140,6 +140,8 @@
       <workItem from="1615224646919" duration="8104000" />
       <workItem from="1615378057039" duration="7860000" />
       <workItem from="1615538758960" duration="956000" />
+      <workItem from="1615652339843" duration="145000" />
+      <workItem from="1615653466050" duration="6990000" />
     </task>
     <task id="LOCAL-00001" summary="fixed bug in display loop">
       <created>1615279470387</created>
@@ -192,7 +194,7 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/phrase_hunter$scratch_3.coverage" NAME="scratch_3 Coverage Results" MODIFIED="1615378396368" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
-    <SUITE FILE_PATH="coverage/phrase_hunter$app.coverage" NAME="app Coverage Results" MODIFIED="1615481197456" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/phrase_hunter$app.coverage" NAME="app Coverage Results" MODIFIED="1615660538905" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/phrase_hunter$scratch_3.coverage" NAME="scratch_3 Coverage Results" MODIFIED="1615653671322" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
   </component>
 </project>

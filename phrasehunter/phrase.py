@@ -1,5 +1,6 @@
 import copy
 
+
 class Phrase:
 
     def __init__(self, phrase):
@@ -9,11 +10,12 @@ class Phrase:
         self.hidden_phrase_as_list = []
         self.display_phrase = None
 
-
     def __str__(self):
         return f'{self.phrase}'
 
     def convert_to_hidden(self):
+        # converts the active phrase into dashes for display at the start of the game
+
         self.hidden_phrase_as_list = copy.deepcopy(self.phrase_as_list)
         for i in range(len(self.phrase_as_list)):
             if self.phrase_as_list[i] != ' ':
@@ -27,36 +29,21 @@ class Phrase:
         else:
             return False
 
-    def display(self, correct_guesses):
-        # display phrase, un-guessed letters as dash, guessed as letter
+    def display(self, letter):
+        # gets correctly guessed letter from check_letter()
+        # displays phrase, un-guessed letters as dash, guessed as letter
 
-        if len(correct_guesses) == 0:
-            self.convert_to_hidden()
-            print(f'Hidden phrase is: {self.hidden_phrase}')
-            return self.hidden_phrase
+        for i in range(len(self.phrase_as_list)):
+            if self.phrase_as_list[i] == letter:
+                self.hidden_phrase_as_list[i] = letter
 
-        else:
-            letter = correct_guesses[-1]
-            for i in range(len(self.phrase_as_list)):
-                if self.phrase_as_list[i] == letter:
-                    self.hidden_phrase_as_list[i] = letter
-
-            self.display_phrase = ''.join(self.hidden_phrase_as_list)
-            print(f'Display phrase is: {self.display_phrase}')
-            # TODO: for testing purposes, remove print when done
-            return self.display_phrase
+        self.display_phrase = ''.join(self.hidden_phrase_as_list)
+        print(f'The phrase is: {self.display_phrase}')
+        return self.display_phrase
 
     def check_complete(self):
-       # print('check_complete called!')
         # checks to see if the whole phrase has been guessed
-        #display_phrase_as_list = list(self.display_phrase)
         if '-' not in self.hidden_phrase_as_list:
-           # print('Check Complete is True')
             return True
         else:
-            # print('Check Complete is False')
             return False
-
-
-
-
