@@ -19,7 +19,7 @@ class Phrase:
         self.hidden_phrase_as_list = copy.deepcopy(self.phrase_as_list)
         for i in range(len(self.phrase_as_list)):
             if self.phrase_as_list[i] != ' ':
-                self.hidden_phrase_as_list[i] = '_'
+                self.hidden_phrase_as_list[i] = '_ '
         self.hidden_phrase = ''.join(self.hidden_phrase_as_list)
         return self.hidden_phrase
 
@@ -43,7 +43,7 @@ class Phrase:
 
     def check_complete(self):
         # checks to see if the whole phrase has been guessed
-        if '_' not in self.hidden_phrase_as_list:
+        if '_ ' not in self.hidden_phrase_as_list:
             return True
         else:
             return False

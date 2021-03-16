@@ -8,11 +8,11 @@ class Game:
         self.missed = 0
         self.allowed_misses = 5
         self.phrases = [
-            'The Remains of the Day',
-            'A Pale View of Hills',
-            'An Artist of the Floating World ',
-            'Never Let Me Go',
-            'The Buried Giant'
+            Phrase('The Remains of the Day'),
+            Phrase('A Pale View of Hills'),
+            Phrase('An Artist of the Floating World'),
+            Phrase('Never Let Me Go'),
+            Phrase('The Buried Giant')
         ]
         self.allowed_chars = list('abcdefghijklmnopqrstuvwxyz')
         self.active_phrase = None
@@ -24,7 +24,7 @@ class Game:
         self.active_phrase = self.get_random_phrase()
         print(f'Your phrase is: {self.active_phrase.convert_to_hidden()}')
 
-        while self.missed <= self.allowed_misses:
+        while self.missed < self.allowed_misses:
             letter = self.get_guess()
             if letter == 'Duplicate':
                 print('Oops! You already tried this letter! Try again!')
@@ -42,13 +42,12 @@ class Game:
                 if self.missed > self.allowed_misses:
                     print('Wrong guess!')
                 else:
-                    print(f'Wrong Guess! You have used {self.missed} of {self.allowed_misses} allowed misses!')
+                    print(f'Wrong Guess! You have lost {self.missed} of {self.allowed_misses} lives!')
 
         self.game_over()
 
     def get_random_phrase(self):
-        phrase_choice = random.choice(self.phrases)
-        current_phrase = Phrase(phrase_choice)
+        current_phrase = random.choice(self.phrases)
         return current_phrase
 
     @staticmethod
